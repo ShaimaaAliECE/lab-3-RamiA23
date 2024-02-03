@@ -8,17 +8,18 @@ namespace Lab3App
 {
     internal class Coin : Treasure
     {
-        private int value;
+        private int Value;
 
         public Coin(string name, int score = 0, int value = 0) : base(name, score, value)
         {
             Description = name;
-            this.value = value;
+            this.Value = value;
         }
 
-        private void UpdateTotalValue()
+        private void UpdateTotValue()
         {
-            CollectionBoard.TotValue = CollectionBoard.TotValue + value;
+            CollectionBoard.TotValue = CollectionBoard.TotValue + Value;
+            Console.WriteLine($"Total Value is updated to: {CollectionBoard.TotValue}");
         }
         public override void Display()
         {
@@ -26,8 +27,8 @@ namespace Lab3App
         }
         public override void AddMe(List<Collectable> l)
         {
-            UpdateTotalValue();
             base.AddMe(l);
+            UpdateTotValue();
         }
     }
 }
